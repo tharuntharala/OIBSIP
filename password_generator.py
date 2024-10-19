@@ -5,10 +5,10 @@ import random
 import string
 import pyperclip
 
-# Function to generate password
+# Function for generate password
 def generate_password():
     try:
-        length = int(length_entry.get())  # Get password length
+        length = int(length_entry.get())  # to Get password length
         if length <= 0:
             raise ValueError("Password length must be positive")
     except ValueError:
@@ -43,21 +43,21 @@ def copy_to_clipboard():
     pyperclip.copy(password_entry.get())
     messagebox.showinfo("Success", "Password copied to clipboard!")
 
-# Create the main window
+# main window
 root = tk.Tk()
 root.title("PASSWORD GENERATOR")
 root.geometry("350x500")
 root.configure(bg='#262C33')  # Dark background color
 
-# Load the background image
+# Loading the background image
 background_image = Image.open("background1.jpg")  # Use your background image
 bg = ImageTk.PhotoImage(background_image)
 
-# Create a Label widget to display the background image
+# displaying background image
 background_label = tk.Label(root, image=bg)
 background_label.place(x=0, y=0, relwidth=1, relheight=1) 
 
-# Password Length Input
+# Password length input
 Password_Length = tk.Label(root, text="Password Length", font=("Arial", 12), fg='white', bg='#262C33', bd=0)
 Password_Length.pack(pady=10)
 
@@ -72,7 +72,7 @@ title_label.place(x=0,y=700,width=1600)
 
 
 
-# Character options
+# Character types
 uppercase_var = tk.BooleanVar(value=True)
 lowercase_var = tk.BooleanVar(value=True)
 digits_var = tk.BooleanVar(value=True)
@@ -83,8 +83,7 @@ tk.Checkbutton(root, text="Include Lowercase Letters", variable=lowercase_var).p
 tk.Checkbutton(root, text="Include Digits", variable=digits_var).pack(anchor='w')
 tk.Checkbutton(root, text="Include Symbols", variable=symbols_var).pack(anchor='w')
 
-# Password output
-#tk.Label(root, text="Generated Password:").pack(pady=10)
+# output
 Generated_Password=tk.Label(root, text="Generated Password:", font=("Arial", 12), fg='white', bg='#262C33', bd=0)
 Generated_Password.pack(pady=10)
 password_entry = tk.Entry(root, width=50)
@@ -92,7 +91,7 @@ password_entry.pack(pady=10)
 
 
 
-# Buttons for generation and clipboard
+# Buttons for generate and clipboard
 tk.Button(root, text="Generate Password", command=generate_password).pack(pady=10)
 tk.Button(root, text="Copy to Clipboard", command=copy_to_clipboard).pack(pady=5)
 # Run the application
